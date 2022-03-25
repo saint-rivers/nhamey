@@ -17,7 +17,7 @@
             {{ order.amount.price }}
           </p>
           <p>
-            {{ order.orderedBy.firstname + " " + order.orderedBy.lastname }}
+            {{ order.orderedBy | user }}
           </p>
         </div>
       </div>

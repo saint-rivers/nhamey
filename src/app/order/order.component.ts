@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { User } from '../users/models/user.model';
 
 interface Order {
   name: string;
@@ -15,14 +16,6 @@ enum Currency {
 interface Amount {
   price: number;
   currency: Currency;
-}
-
-interface User {
-  id: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  image?: string;
 }
 
 @Component({
