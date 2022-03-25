@@ -9,7 +9,7 @@ import { LoginComponent } from './users/login/login.component';
 import { OrderComponent } from './order/order.component';
 import { GroupsComponent } from './groups/groups.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserPipe } from './pipes/user.pipe';
+import { UserPipe } from './users/pipes/user.pipe';
 
 @NgModule({
   declarations: [
