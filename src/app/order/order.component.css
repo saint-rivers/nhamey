@@ -1,0 +1,15 @@
+input[type="text"],
+input[type="number"],
+select, .field {
+  @apply py-2 px-4 my-2;
+  @apply border-b-2 border-gray-300 hover:border-blue-500;
+  @apply outline-none;
+}
+
+option {
+  @apply rounded bg-white focus:bg-blue-400;
+}
+
+.heading {
+  @apply font-bold text-gray-600;
+}

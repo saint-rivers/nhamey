@@ -1,0 +1,84 @@
+<div class="flex flex-row md:mx-24 mt-12 h-5/6 justify-center align-top">
+  <div class="flex flex-col text-left justify-center w-1/2 h-[540px]">
+    <div class="mx-auto w-2/3">
+      <h1 class="heading text-xl pl-4">Orders</h1>
+      <div class="flex flex-row">
+        <p class="heading pl-4">Count: {{ orders.length }}</p>
+      </div>
+      <div class="overflow-y-scroll h-[460px] pr-4">
+        <div
+          *ngFor="let order of orders"
+          class="bg-white rounded-lg text-left my-4 p-4"
+        >
+          <p class="heading text-lg">{{ order.name }}</p>
+          <p>
+            <span *ngIf="isDollar(order.amount.currency)">$&nbsp;</span>
+            <span *ngIf="isRiel(order.amount.currency)">KHR &nbsp;</span>
+            {{ order.amount.price }}
+          </p>
+          <p>
+            {{ order.orderedBy.firstname + " " + order.orderedBy.lastname }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form
+    class="flex flex-col w-1/2 mx-auto bg-white px-12 pt-8 rounded-lg"
+    [formGroup]="orderForm"
+  >
+    <label for="place-input"></label>
+    <input type="text" placeholder="Restaurant Name" id="place-input" />
+
+    <label for="grand-total-input"></label>
+    <input
+      type="number"
+      min="0"
+      step="any"
+      placeholder="$ Grand Total"
+      id="grand-total-input"
+    />
+
+    <br />
+    <br />
+
+    <!-- <div>{{ orderForm.value | json }}</div> -->
+
+    <label for="order-name-input"></label>
+    <input
+      type="text"
+      placeholder="Order Name"
+      id="order-name-input"
+      formControlName="name"
+    />
+    <div class="flex flex-row w-full" id="currency-select">
+      <select class="w-1/4 bg-white mr-2" formControlName="currency">
+        <option value="KHR" selected>Riel</option>
+        <option value="USD">Dollars</option>
+      </select>
+      <label class="hidden" for="order-amount-input"></label>
+      <input
+        class="w-3/4"
+        type="number"
+        placeholder="Amount"
+        id="order-amount-input"
+        formControlName="price"
+      />
+    </div>
+
+    <label for="ordered-by-input"></label>
+    <input
+      type="text"
+      placeholder="Ordered By"
+      id="ordered-by-input"
+      formControlName="orderedBy"
+    />
+
+    <input
+      (click)="addOrder()"
+      type="button"
+      value="Add Order"
+      class="bg-blue-400 hover:bg-blue-500 text-white py-4 w-full cursor-pointer rounded mt-8"
+    />
+  </form>
+</div>
