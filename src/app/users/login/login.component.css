@@ -1,0 +1,30 @@
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  @apply py-1;
+  @apply border-b-2 hover:border-blue-500 focus:border-blue-500;
+  @apply focus:outline-none;
+}
+
+input[type="submit"] {
+  @apply py-2;
+  @apply text-white font-bold hover:text-white;
+  @apply bg-blue-500 hover:bg-indigo-700;
+  @apply cursor-pointer;
+}
+
+input {
+  @apply w-full;
+  @apply mt-4;
+}
+
+h1 {
+  @apply font-bold text-lg;
+}
+
+.google-login {
+  @apply py-2;
+  @apply text-white font-bold hover:text-white;
+  @apply bg-blue-500 hover:bg-yellow-500;
+  @apply cursor-pointer;
+}

@@ -10,6 +10,7 @@ import { OrderComponent } from './order/order.component';
 import { GroupsComponent } from './groups/groups.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPipe } from './users/pipes/user.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,13 @@ import { UserPipe } from './users/pipes/user.pipe';
     GroupsComponent,
     UserPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
