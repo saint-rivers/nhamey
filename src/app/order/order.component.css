@@ -1,7 +1,7 @@
 input[type="text"],
 input[type="number"],
 select, .field {
-  @apply py-1 px-4 my-2;
+  @apply py-1 my-2;
   @apply border-b-2 border-gray-300 hover:border-blue-500;
   @apply outline-none;
 }
