@@ -13,9 +13,13 @@ input[type="submit"] {
   @apply cursor-pointer;
 }
 
-input {
+input:not(input[type="checkbox"]) {
   @apply w-full;
   @apply mt-4;
+}
+
+input[type="checkbox"]{
+  @apply accent-blue-500 rounded;
 }
 
 h1 {

@@ -23,10 +23,25 @@
         [formControl]="password"
       />
     </div>
+    <!-- <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3"></div>
+    </div> -->
+    <label class="flex items-center mt-4 text-gray-500 font-bold">
+      <input class="mr-6" type="checkbox" (change)="setRememberMe($event)" />
+      <span class="w-3/4"> Remember Me</span>
+    </label>
+
     <div class="">
       <input type="submit" (click)="loginUser()" value="Login" />
     </div>
-    <div class=""><input type="button" class="google-login" (click)="googleLogin()" value="Google" /></div>
+    <div class="">
+      <input
+        type="button"
+        class="google-login"
+        (click)="googleLogin()"
+        value="Google"
+      />
+    </div>
     <a href="#" class="mt-4 text-blue-500 hover:text-orange-500"
       >Don't have an account?</a
     >
