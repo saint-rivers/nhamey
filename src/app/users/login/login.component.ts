@@ -6,7 +6,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CryptoJsService } from 'src/app/crypto-js/crypto-js.service';
 import { AuthenticationService } from 'src/app/users/services/authentication.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,9 @@ export class LoginComponent implements OnInit {
   rememberMe: boolean = false;
 
   constructor(
+    private cryptoService: CryptoJsService,
     private authService: AuthenticationService,
+    private cookie: CookieService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {}
@@ -40,13 +44,12 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (data) => {
           var jwt = JSON.stringify(data.token);
-          jwt = this.encrypt(jwt);
+          jwt = this.cryptoService.encrypt(jwt);
 
           if (this.rememberMe) {
-            // todo: replace this with cookie storage
-            localStorage.setItem('jwt', jwt);
+            this.cookie.set('nhameyt', jwt);
           } else {
-            window.sessionStorage.setItem('jwt', jwt);
+            window.sessionStorage.setItem('nhameyt', jwt);
           }
           this.router.navigateByUrl('/orders');
         },
@@ -68,17 +71,5 @@ export class LoginComponent implements OnInit {
   setRememberMe(e: Event) {
     this.rememberMe = (<HTMLInputElement>e.target).checked;
     console.log(this.rememberMe);
-  }
-
-  /**
-   * @see https://medium.com/@malli.blogger2020/aes-encryption-and-decryption-in-angular-6-7-8-9-1079dd5b4e7a
-   * @type null
-   * @memberof LoginComponent
-   */
-  encrypt(data: string): string {
-    return data;
-    // todo: encrypt jwt before storage
-    // this.encryptedMessage = CryptoJS.AES.encrypt( this.message.trim(), this.password.trim()).toString();
-    // this.decryptedMessage = CryptoJS.AES.decrypt( this.encryptedMessage,  this.password.trim() ).toString(CryptoJS.enc.Utf8);
   }
 }

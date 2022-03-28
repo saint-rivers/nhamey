@@ -11,6 +11,7 @@ import { GroupsComponent } from './groups/groups.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPipe } from './users/pipes/user.pipe';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // HttpClientXsrfModule.withOptions({cookieName: 'XSRF-TOKEN'})
+    // CookieService
   ],
   providers: [],
   bootstrap: [AppComponent],
