@@ -5,27 +5,29 @@
         <div class="flex flex-col">
           <h1 class="heading text-xl pl-4">Orders</h1>
           <div class="flex flex-row">
-            <p class="heading pl-4">Count: {{ orders.length }}</p>
+            <p class="heading pl-4">Count: {{ foodItems.length }}</p>
           </div>
         </div>
         <div class="flex flex-col">
-          <button type="submit" class="bg-blue-500 text-white py-2 px-4">Save</button>
+          <button type="submit" class="bg-blue-500 text-white py-2 px-4">
+            Save
+          </button>
         </div>
       </div>
       <div class="overflow-y-scroll h-[460px] pr-4">
         <div
-          *ngFor="let order of orders"
+          *ngFor="let foodItem of foodItems"
           class="bg-white rounded-lg text-left my-4 p-4 flex justify-between"
         >
           <div class="flex flex-col">
-            <p class="heading text-lg">{{ order.name }}</p>
+            <p class="heading text-lg">{{ foodItem.name }}</p>
             <p>
-              <span *ngIf="isDollar(order.amount.currency)">$&nbsp;</span>
-              <span *ngIf="isRiel(order.amount.currency)">KHR &nbsp;</span>
-              {{ order.amount.price }}
+              <span *ngIf="isDollar(foodItem.amount.currency)">$&nbsp;</span>
+              <span *ngIf="isRiel(foodItem.amount.currency)">KHR &nbsp;</span>
+              {{ foodItem.amount.price }}
             </p>
             <p>
-              {{ order.orderedBy | user }}
+              {{ foodItem.orderedBy | user }}
             </p>
           </div>
           <div class="flex flex-col justify-start">

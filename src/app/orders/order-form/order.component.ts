@@ -1,22 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { User } from '../users/models/user.model';
-
-interface Order {
-  name: string;
-  amount: Amount;
-  orderedBy: User;
-}
-
-enum Currency {
-  riel = 'KHR',
-  dollars = 'USD',
-}
-
-interface Amount {
-  price: number;
-  currency: Currency;
-}
+import { Currency } from '../models/currecy';
+import { User } from '../../users/models/user.model';
+import { FoodItem } from '../models/foodItem';
 
 @Component({
   selector: 'app-order',
@@ -24,35 +10,35 @@ interface Amount {
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
-  orders: Order[] = [];
+  foodItems: FoodItem[] = [];
 
   users: User[] = [
     {
-      id: "123",
-      firstname: "Reach",
-      lastname: "Nou",
-      email: "noureach@gmail.com",
-      image: ""
+      id: '123',
+      firstname: 'Reach',
+      lastname: 'Nou',
+      email: 'noureach@gmail.com',
+      image: '',
     },
     {
-      id: "321",
-      firstname: "Keo",
-      lastname: "Kay",
-      email: "kaykeo188@gmail.com",
-      image: ""
+      id: '321',
+      firstname: 'Keo',
+      lastname: 'Kay',
+      email: 'kaykeo188@gmail.com',
+      image: '',
     },
     {
-      id: "333",
-      firstname: "Dayan",
-      lastname: "Eam",
-      email: "eam.dayan@gmail.com",
-      image: ""
+      id: '333',
+      firstname: 'Dayan',
+      lastname: 'Eam',
+      email: 'eam.dayan@gmail.com',
+      image: '',
     },
-  ]
+  ];
 
   defaultOrder: any = {
     name: new FormControl(''),
-    currency: new FormControl(Currency.riel),
+    currency: new FormControl(Currency.KHR),
     price: new FormControl(''),
     orderedBy: new FormControl(''),
   };
@@ -60,24 +46,28 @@ export class OrderComponent implements OnInit {
   orderForm = new FormGroup(this.defaultOrder);
 
   initOrders(): void {
-    this.orders.push({
+    this.foodItems.push({
+      id: '123',
       name: 'fried noodles',
-      amount: { price: 1.75, currency: Currency.dollars },
+      amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[0],
     });
-    this.orders.push({
+    this.foodItems.push({
+      id: '123',
       name: 'baycha hay nam',
-      amount: { price: 1.75, currency: Currency.dollars },
+      amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[1],
     });
-    this.orders.push({
-      name: 'baycha hay nam',
-      amount: { price: 1.75, currency: Currency.dollars },
+    this.foodItems.push({
+      id: '123',
+      name: 'sandwich',
+      amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[2],
     });
-    this.orders.push({
-      name: 'baycha fried chicken',
-      amount: { price: 1.75, currency: Currency.dollars },
+    this.foodItems.push({
+      id: '123',
+      name: 'fried rice kimchi',
+      amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[0],
     });
   }
@@ -90,7 +80,8 @@ export class OrderComponent implements OnInit {
 
   addOrder(): void {
     console.log(this.orderForm);
-    this.orders.push({
+    this.foodItems.push({
+      id: '123',
       name: this.orderForm.get('name')?.value,
       amount: {
         price: this.orderForm.get('price')?.value,
@@ -102,15 +93,15 @@ export class OrderComponent implements OnInit {
   }
 
   isDollar(currency: string): boolean {
-    return currency === Currency.dollars;
+    return currency === Currency.USD;
   }
 
   isRiel(currency: string): boolean {
-    return currency === Currency.riel;
+    return currency === Currency.KHR;
   }
 
   clearOrder(): void {
     this.orderForm.reset();
-    this.orderForm.setControl('currency', new FormControl(Currency.riel));
+    this.orderForm.setControl('currency', new FormControl(Currency.KHR));
   }
 }

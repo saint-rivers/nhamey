@@ -1,0 +1,11 @@
+.main-button {
+  @apply w-1/2 py-3 mb-4 mx-auto;
+  @apply border-b-2 border-gray-300 hover:border-blue-500;
+  @apply outline-none bg-white;
+}
+
+.sub-button {
+  @apply w-1/3 py-3 mt-4 mx-auto;
+  @apply border-b-2 border-gray-300 hover:border-blue-500;
+  @apply outline-none bg-white hover:bg-teal-500 hover:text-white;
+}

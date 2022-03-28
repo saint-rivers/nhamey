@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './main/home/home.component';
 import { LoginComponent } from './users/login/login.component';
-import { OrderComponent } from './order/order.component';
+import { OrderComponent } from './orders/order-form/order.component';
 import { GroupsComponent } from './groups/groups.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPipe } from './users/pipes/user.pipe';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+import { CurrencyPipe } from './orders/pipes/currency.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { CookieService } from 'ngx-cookie-service';
     OrderComponent,
     GroupsComponent,
     UserPipe,
+    CurrencyPipe,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,6 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // CookieService
   ],
   providers: [],
   bootstrap: [AppComponent],
