@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GroupsComponent } from './groups/groups.component';
+import { GroupsComponent } from './main/groups/groups.component';
 import { HomeComponent } from './main/home/home.component';
 import { LoginComponent } from './users/login/login.component';
 import { OrderComponent } from './orders/order-form/order.component';
+import { TemplateComponent } from './menu-template/template/template.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'groups',
     component: GroupsComponent,
+  },
+  {
+    path: 'templates',
+    component: TemplateComponent,
   },
 ];
 

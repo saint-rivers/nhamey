@@ -17,12 +17,9 @@ enum viewingTab {
 export class HomeComponent implements OnInit {
   orders: Order[] = [];
   foodItems: FoodItem[] = [];
-  // viewing: viewingTab | null = null;
   viewing: viewingTab = viewingTab.FOOD_ITEMS;
 
-  constructor(private router: Router) {
-    // this.getPendingOrders();
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -67,6 +64,7 @@ export class HomeComponent implements OnInit {
       id: '124',
       name: 'fried noodles',
       amount: { currency: Currency.KHR, price: 5000 },
+      paidAmount: { currency: Currency.KHR, price: 0 },
       orderedBy: {
         id: '123',
         firstname: 'Reach',
@@ -78,6 +76,7 @@ export class HomeComponent implements OnInit {
       id: '127',
       name: 'sandwich',
       amount: { currency: Currency.KHR, price: 4000 },
+      paidAmount: { currency: Currency.KHR, price: 0 },
       orderedBy: {
         id: '123',
         firstname: 'Reach',

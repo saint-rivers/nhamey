@@ -1,0 +1,80 @@
+<div class="flex flex-row md:mx-24 mt-12 h-5/6 justify-center align-top">
+  <div class="flex flex-col text-left justify-center w-1/2 h-[540px]">
+    <div class="mx-auto w-2/3">
+      <div class="flex justify-between">
+        <div class="flex flex-col">
+          <h1 class="heading text-xl pl-4">Templates</h1>
+          <div class="flex flex-row">
+            <p class="heading pl-4">Total: {{ menu.menuItems.length }}</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <button
+            type="button"
+            (click)="submitNewMenu()"
+            class="bg-blue-500 text-white py-2 px-4"
+          >
+            Create Menu
+          </button>
+        </div>
+      </div>
+      <div class="overflow-y-scroll h-[460px] pr-4">
+        <div
+          *ngFor="let menuItem of menu.menuItems"
+          class="bg-white rounded-lg text-left my-4 p-4 flex justify-between"
+        >
+          <div class="flex flex-col">
+            <p class="heading text-lg">{{ menuItem.name }}</p>
+            <p>
+              <span *ngIf="isDollar(menuItem.amount.currency)">$&nbsp;</span>
+              <span *ngIf="isRiel(menuItem.amount.currency)">KHR &nbsp;</span>
+              {{ menuItem.amount.price }}
+            </p>
+          </div>
+          <div class="flex flex-col justify-start">
+            <button class="bg-gray-200 rounded-lg my-2 px-2">Edit</button
+            ><button class="bg-gray-200 rounded-lg my-2 px-2">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form
+    class="flex flex-col w-1/2 mx-auto bg-white px-12 pt-8 rounded-lg"
+    [formGroup]="menuItemForm"
+  >
+    <label for="place-input"></label>
+    <input type="text" placeholder="Menu Name" id="place-input" />
+
+    <br />
+
+    <label for="order-name-input"></label>
+    <input
+      type="text"
+      placeholder="Order Name"
+      id="order-name-input"
+      formControlName="name"
+    />
+    <div class="flex flex-row w-full" id="currency-select">
+      <select class="w-1/4 bg-white mr-2" formControlName="currency">
+        <option value="KHR" selected>Riel</option>
+        <option value="USD">Dollars</option>
+      </select>
+      <label class="hidden" for="order-amount-input"></label>
+      <input
+        class="w-3/4"
+        type="number"
+        placeholder="Amount"
+        id="order-amount-input"
+        formControlName="price"
+      />
+    </div>
+
+    <input
+      (click)="addMenuItem()"
+      type="button"
+      value="Add Menu Item"
+      class="bg-blue-400 hover:bg-blue-500 text-white py-4 w-full cursor-pointer mt-8"
+    />
+  </form>
+</div>

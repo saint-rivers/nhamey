@@ -49,24 +49,28 @@ export class OrderComponent implements OnInit {
     this.foodItems.push({
       id: '123',
       name: 'fried noodles',
+      paidAmount: { currency: Currency.KHR, price: 0 },
       amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[0],
     });
     this.foodItems.push({
       id: '123',
       name: 'baycha hay nam',
+      paidAmount: { currency: Currency.KHR, price: 0 },
       amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[1],
     });
     this.foodItems.push({
       id: '123',
       name: 'sandwich',
+      paidAmount: { currency: Currency.KHR, price: 0 },
       amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[2],
     });
     this.foodItems.push({
       id: '123',
       name: 'fried rice kimchi',
+      paidAmount: { currency: Currency.KHR, price: 0 },
       amount: { price: 1.75, currency: Currency.USD },
       orderedBy: this.users[0],
     });
@@ -83,6 +87,7 @@ export class OrderComponent implements OnInit {
     this.foodItems.push({
       id: '123',
       name: this.orderForm.get('name')?.value,
+      paidAmount: { currency: Currency.KHR, price: 0 },
       amount: {
         price: this.orderForm.get('price')?.value,
         currency: this.orderForm.get('currency')?.value,

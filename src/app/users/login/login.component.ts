@@ -6,9 +6,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CryptoJsService } from 'src/app/crypto-js/crypto-js.service';
 import { AuthenticationService } from 'src/app/users/services/authentication.service';
 import { CookieService } from 'ngx-cookie-service';
+import { CryptoJsService } from '../services/crypto-js.service';
 
 @Component({
   selector: 'app-login',

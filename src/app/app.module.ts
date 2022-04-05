@@ -7,11 +7,12 @@ import { NavbarComponent } from './core/navbar/navbar.component';
 import { HomeComponent } from './main/home/home.component';
 import { LoginComponent } from './users/login/login.component';
 import { OrderComponent } from './orders/order-form/order.component';
-import { GroupsComponent } from './groups/groups.component';
+import { GroupsComponent } from './main/groups/groups.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPipe } from './users/pipes/user.pipe';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { CurrencyPipe } from './orders/pipes/currency.pipe';
+import { TemplateComponent } from './menu-template/template/template.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CurrencyPipe } from './orders/pipes/currency.pipe';
     GroupsComponent,
     UserPipe,
     CurrencyPipe,
+    TemplateComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ export interface FoodItem {
     id: string;
     name: string;
     amount: Amount;
+    paidAmount: Amount;
     orderedBy: User;
 }
 
